@@ -1,0 +1,203 @@
+<body class="antialiased" [ngClass]="{'bg-white':isLight, 'text-muted': isLight, 'bg-black':isLight==false, 'text-white': isLight==false }">
+    <div class="wrapper" >
+     
+
+      <div class="page-wrapper">
+            <!-- Header banner -->
+            
+        <div class="row align-items-center">
+            <div class="col">
+                <picture>
+                    <source srcset="{{desktopBanner}}"  media="(min-width: 1440px)" class=" w-100 d-fluid" alt="banner">
+                    <img src="{{mobileBanner}}" class=" w-100 d-fluid" alt="banner">
+
+                </picture>
+            
+            </div>
+        </div>
+          
+     
+        <div class="page-body overlap">
+          <div class="container-xl ">
+            <div class="row row-deck row-cards  ">
+            
+            <div class="row mx-2 my-3">
+
+                <div class="col-md-8 col-lg-5 mx-auto">
+                    <div class="card bg-transparent border-0">
+                    <div class="card-body bg-transparent border-0">
+                        <div class="d-flex justify-content-between">
+                                <h1 class="font-todo font-weight-bold text-white">TODO</h1>
+                                
+                            <span class="font-weight-bold font-todo" *ngIf="isLight">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="white" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /> </svg>                                    
+                            
+                            </span>
+                            <span class="font-weight-bold font-todo" *ngIf="!isLight">
+                                                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="white" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="4" /><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" /></svg>                                   
+                                                            
+                            </span>
+                          
+                        
+                        
+                        </div>
+                    
+                        
+                    </div>
+                    </div>
+                </div>        
+            </div>
+            <div class="row m-auto py-2">
+
+                <div class="col-md-8 col-lg-5 mx-auto">
+
+                    <div class="bg-transparent d-flex justify-content-between ">
+                        <button (click)="changeMode()"  class="btn  w-25 border-0" [ngClass]="{'btn-dark':isLight, 'text-white': isLight, 'btn-white':isLight==false, 'text-primary': isLight==false }">{{modeTitle}}</button>
+                        <button  class="btn w-25 todo-status border-0" data-bs-toggle="modal" data-bs-target="#new-todo-modal" [ngClass]="{'btn-white':isLight, 'text-primary': isLight, 'btn-dark':isLight==false, 'text-white': isLight==false }">Add New</button>
+                    </div>
+                </div>
+                     
+            </div>
+            
+            <div class="row m-auto">
+
+                <div class="col-md-8 col-lg-5 mx-auto rounded">
+                  <div class="bg-white shadow todo-status rounded">
+                    <p class="text-primary text-center p-3 font-weight-bold" [ngClass]="{'btn-white':isLight, 'text-primary': isLight, 'btn-dark rounded':isLight==false, 'text-white': isLight==false }">You currently have a total of {{allTodos.length}} todos. </p>
+                   
+                  
+                  </div>
+                </div>
+            </div>
+
+              <div class="row m-auto">
+
+                  <div class="col-md-8 col-lg-5 mx-auto">
+                    <div class="card  shadow" [ngClass]="{'border border-dark':isLight==false }">
+                     
+                      <div class="table-responsive mb-0" >
+                        <table class="table card-table table-vcenter enable-scrollbar" [ngClass]="{'bg-white':isLight, 'text-muted': isLight, 'bg-dark':isLight==false, 'text-white': isLight==false }">
+                          <tr *ngFor="let todo of todos; let i=index" >
+                            <td class="w-1 pe-0">
+                              <input (click)="markCompletedTodos(todo.item)" type="checkbox" class="form-check-input m-0 align-middle rounded-circle" aria-label="Select task" [checked]="todo.completed" [disabled]="todo.completed"
+                              [ngClass]="{'text-decoration-line border':isLight==false }">
+                            </td>
+                            <td class="w-100" >
+                              <span class="" [ngClass]="{'text-decoration-line-through':todo.completed, 'text-muted': isLight, 'text-light': isLight==false }">{{todo.item}}</span>
+                            </td>
+                       
+                            <td>
+                              <span class="avatar avatar-sm todo-status" (click)="deleteTodo(todo.item)">
+                                                        
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+                                                        
+                            </span>
+                            </td>
+                          </tr>
+                          <!-- <hr> -->
+                        </table>
+                      </div>
+                      
+                       <div class="d-flex justify-content-around py-4" [ngClass]="{'bg-white':isLight, 'text-muted': isLight, 'bg-dark':isLight==false, 'text-white': isLight==false }">
+                          
+                       
+                           <span class="">
+                             <a href="#" (click)="showFiveMinLeftTodos($event)" class="text-primary text-decoration-none action-button">5 min left</a>
+                           </span>
+                            <span class="">
+                                <a href="#" (click)="showAllTodos($event)" class="text-primary text-decoration-none action-button">All</a>
+                              </span>
+                           
+                            <span class="">
+                              <a href="#" (click)="showActiveTodos($event)" class="text-primary text-decoration-none action-button">Active</a>
+                            </span>
+                            <span class="">
+                              <a href="#" (click)="showCompletedTodos($event)" class="text-primary text-decoration-none action-button">Completed</a>
+                            </span>                       
+                         
+                            <span class="">
+                                <a href="#" (click)="clearCompletedTodos($event)" class="text-primary text-decoration-none action-button">Clear Completed</a>                                                  
+                           
+                            </span>
+                         
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+            
+              <div class="modal modal-blur fade" id="new-todo-modal" tabindex="-1" role="dialog" aria-hidden="true" >
+                <div class="modal-dialog modal-dialog-centered" role="document" >
+                    <div class="modal-content shadow" [ngClass]="{'bg-white':isLight, 'text-muted': isLight, 'bg-dark':isLight==false, 'text-white': isLight==false }">
+                        <div class="modal-header" [ngClass]="{'bg-black':isLight==false, 'text-white': isLight==false }">
+                            <h5 class="modal-title">Add New Todo</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" [ngClass]="{ 'btn-white': isLight==false }"></button>
+                        </div>
+                        <div class="modal-body">
+    
+    
+                            <div class="mb-3">
+                                <label class="form-label">New Item</label>
+                                <input #newTodo type='text' class="form-control" [ngClass]="{'bg-dark':isLight==false, 'text-white': isLight==false }"/>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Due Time (in minutes)</label>
+                                <input #dueTime type='number' class="form-control" [ngClass]="{'bg-dark':isLight==false, 'text-white': isLight==false }" />
+                            </div>
+    
+                          
+    
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn me-auto" [ngClass]="{'btn-outline': isLight==false }" data-bs-dismiss="modal">Close</button>
+                            <button type="button" (click)="addTodo(newTodo.value, dueTime.value)" class="btn btn-primary"
+                                data-bs-dismiss="modal">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+          </div>
+        </div>
+
+     
+      </div>
+    </div>
+
+    <footer class="footer footer-transparent d-print-none mt-5">
+        <div class="container-fluid">
+          <div class="row text-center align-items-center flex-row-reverse">
+          
+            <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+              <ul class="list-inline list-inline-dots mb-0 d-none d-md-block">
+                <li class="list-inline-item text-white">
+                  
+                    <p class="" [ngClass]="{ 'text-dark': isLight, 'text-white': isLight==false }">
+                        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor.</a> 
+                    Coded by <a href="#">Adewale Gbadamosi.</a>
+                    </p>
+                </li>
+                <!-- <li class="list-inline-item">
+                  <a href="#" class="link-secondary" rel="noopener">v2.0</a>
+                </li> -->
+              </ul>
+              <div class="d-block d-md-none">
+                <div class="col-12 col-md-4" [ngClass]="{ 'text-dark': isLight, 'text-white': isLight==false }">
+                    <p class="text-dark">
+                        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+                    Coded by <a href="#">Adewale Gbadamosi</a>.
+                    </p>
+                </div>
+                <!-- <div class="col-12 col-md-4">
+                    All rights reserved. v2.0
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+    </footer>
+   
+   
+  </body>

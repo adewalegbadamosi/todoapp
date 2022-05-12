@@ -1,0 +1,62 @@
+body{
+    font-size: 16px;
+}
+.bg-black{
+    background-color: black !important;
+}
+.enable-scrollbar , table{
+  
+    height: 70vh !important;       
+    overflow-y: auto !important;    /* Trigger vertical scroll    */
+    overflow-x: hidden;
+   
+  }
+
+  .overlap{
+      margin-top: -250px !important;
+  }
+
+  .antialiased{
+      min-height: 100vh !important;
+  }
+  .wrapper{
+      min-height: 75vh !important;
+  }
+  .font-todo{
+      font-size: 30px;
+  }
+  .action-button:hover{
+      color: hsl(233, 11%, 84%) !important;
+  }
+  .todo-status:hover, .todo-status p:hover{
+    background-color:  #206bc4 !important;
+    color: white !important;
+  }
+  .todo-status p:hover{
+    
+    color: white !important;
+  }
+
+  input[type="checkbox"]:hover {
+    background-color:  #206bc4 !important;
+    border: 1px solid linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%) !important;
+
+  }
+
+  td{
+      padding-top: 1px !important;
+      padding-bottom: 1px !important;
+  }
+
+  .linear-gradient{
+
+    background-color:  linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%) !important;
+    border: 1px solid linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%) !important;
+  }
+
+  .dark-gray{
+      color: Blue hsl(234, 11%, 52%) !important;
+  }
+  .ver-dark-grayish-blue{
+      color: Blue hsl(237, 14%, 26%) !important;
+  }

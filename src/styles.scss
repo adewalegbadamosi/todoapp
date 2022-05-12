@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css";
+/* Tabler Core */
+@import "./assets/css/tabler.min.css";
+/* Tabler Plugins */
+@import "./assets/css/tabler-flags.min.css";
+@import "./assets/css/tabler-payments.min.css";
+@import "./assets/css/tabler-vendors.min.css";
+@import "./assets/css/demo.min.css";
+
+
