@@ -4,11 +4,16 @@ body{
 .bg-black{
     background-color: black !important;
 }
-.enable-scrollbar , table{
+.enable-scrollbar {
   
     height: 70vh !important;       
     overflow-y: auto !important;    /* Trigger vertical scroll    */
     overflow-x: hidden;
+   
+  }
+td {
+  
+    height: 7vh !important;       
    
   }
 
