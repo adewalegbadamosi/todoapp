@@ -158,6 +158,85 @@
                             <div>
                                 <label for="" class="options text-primary" [ngClass]="{'text-white':!isLight}">Options</label>
                             </div>
+
+                            <div class="">                            
+                                <select  (click)="showMobileOptions()" name="" id="" class="w-100 p-2 border border-primary rounded" [ngClass]="{'bg-dark text-light border-white':!isLight}">
+                                    <option value="" class="">select option</option>
+                                </select>
+
+                                <ul *ngIf="displayModileOptions" name="" id="" class="w-100 m-0 border border-primary rounded list-unstyled" [ngClass]="{'bg-dark text-light border-white':!isLight}">
+                                    
+                                
+                                    <li class="border-muted p-2" (click)="showFiveMinLeftTodos($event)">
+                                        <a href="#"  class="text-primary text-decoration-none action-button" [ngClass]="{' text-light':!isLight}" >5 min left</a>
+                                    </li>
+                                        <li  class="border-muted p-2" (click)="showAllTodos($event)">
+                                            <a href="#"  class="text-primary text-decoration-none action-button" [ngClass]="{' text-light':!isLight}">All</a>
+                                        </li>
+                                    
+                                        <li class="border-muted p-2" (click)="showActiveTodos($event)">
+                                        <a href="#"  class="text-primary text-decoration-none action-button" [ngClass]="{' text-light':!isLight}">Active</a>
+                                        </li>
+                                        <li class="border-muted p-2" (click)="showCompletedTodos($event)">
+                                        <a href="#"  class="text-primary text-decoration-none action-button" [ngClass]="{' text-light':!isLight}">Completed</a>
+                                        </li>                       
+                                    
+                                        <li class="border-muted p-2" (click)="clearCompletedTodos($event)">
+                                            <a href="#"  class="text-primary text-decoration-none action-button" [ngClass]="{' text-light':!isLight}">Clear Completed</a>                                                 
+                                    
+                                        </li>
+                                </ul>
+                            </div>
+                      </div> 
+
+
+                      
+
+                       <!-- <div class="d-block d-md-none d-flex justify-content-around py-4" [ngClass]="{'bg-white':isLight, 'text-muted': isLight, 'bg-dark':isLight==false, 'text-white': isLight==false }">
+                          
+                         
+                                
+                                <div class="accordion" id="accordionExample" [ngClass]="{'bg-dark text-light border-white':!isLight}">
+                                    <div class="accordion-item">
+                                      <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                          Options
+                                        </button>
+                                      </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <ul class="list-unstyled"> 
+                                                    <li class="" (click)="showFiveMinLeftTodos($event)">
+                                                        <a href="#"  class="text-primary text-decoration-none action-button">5 min left</a>
+                                                    </li>
+                                                    <li selected class="" (click)="showAllTodos($event)">
+                                                        <a href="#"  class="text-primary text-decoration-none action-button">All</a>
+                                                    </li>
+                                                
+                                                    <li class="" (click)="showActiveTodos($event)">
+                                                    <a href="#"  class="text-primary text-decoration-none action-button">Active</a>
+                                                    </li>
+                                                    <li class="" (click)="showCompletedTodos($event)">
+                                                    <a href="#"  class="text-primary text-decoration-none action-button">Completed</a>
+                                                    </li>                     
+                                                
+                                                    <li class="" (click)="clearCompletedTodos($event)">
+                                                        <a href="#"  class="text-primary text-decoration-none action-button">Clear Completed</a>                                                 
+                                                
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                      </div>
+                                    </div>
+                                </div>
+                               
+                      </div> -->
+                       
+                      <!-- <div class="d-block d-md-none d-flex justify-content-around py-4" [ngClass]="{'bg-white':isLight, 'text-muted': isLight, 'bg-dark':isLight==false, 'text-white': isLight==false }">
+                          
+                            <div>
+                                <label for="" class="options text-primary" [ngClass]="{'text-white':!isLight}">Options</label>
+                            </div>
                             <select name="" id="" class=" border border-primary rounded" [ngClass]="{'bg-dark text-light border-white':!isLight}">
                                 
                             
@@ -180,7 +259,7 @@
                                 
                                     </option>
                                 </select>
-                      </div>
+                      </div> -->
 
                     </div>
                   </div>

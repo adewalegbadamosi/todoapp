@@ -26,6 +26,7 @@ export class TodoComponent implements OnInit {
 
   displayInputField:boolean = false;
   typing:boolean = false;
+  displayModileOptions:boolean = false;
 
 
  
@@ -62,7 +63,9 @@ export class TodoComponent implements OnInit {
     this.allTodos = this.todoService.getTodos();
     
   }
-
+showMobileOptions(){
+this.displayModileOptions =true;
+}
   openInputField(){
     this.displayInputField = true;
   }
@@ -135,6 +138,7 @@ export class TodoComponent implements OnInit {
 
     this.todos = this.allTodos.filter( (x) => (x.timeLeft - 5*60*1000) < moment().valueOf() && (x.timeLeft) > moment().valueOf());
     
+    this.displayModileOptions =false;
 
   }
 
@@ -142,31 +146,33 @@ export class TodoComponent implements OnInit {
     event.preventDefault();
 
     this.todos = this.allTodos.filter( x  => x.timeLeft > moment().valueOf()  );    
+    this.displayModileOptions =false;
     
   }
   showCompletedTodos(event:any){
     event.preventDefault();
 
     this.todos = this.allTodos.filter( x  => x.completed == true );    
-  
+    this.displayModileOptions =false;
+    
   }
 
   showAllTodos(event:any){
     event.preventDefault();
     
-    // var todosString = "todos";
-    // var todos:any = sessionStorage.getItem(todosString) ? sessionStorage.getItem(todosString) : [];
-    // this.todos = todos;
+   
     this.todos = this.allTodos.map( x  => x );    
+    this.displayModileOptions =false;
 
-    // this.todos = this.allTodos;
   }
 
   clearCompletedTodos(event: any){
     event.preventDefault();
     this.allTodos = this.allTodos.filter( x  => x.completed === false );    
-    this.todos = this.todos.filter( x  => x.completed === false );    
-    // this.todos = this.allTodos;
+    this.todos = this.todos.filter( x  => x.completed === false ); 
+    this.displayModileOptions =false;
+
+  
   
   }
 
