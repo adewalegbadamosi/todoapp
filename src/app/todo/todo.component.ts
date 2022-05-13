@@ -24,6 +24,10 @@ export class TodoComponent implements OnInit {
   todos: any[] = [];
   allTodos:any[] = [];
 
+  displayInputField:boolean = false;
+  typing:boolean = false;
+
+
  
   constructor( private todoService: TodoService) { }
 
@@ -59,18 +63,43 @@ export class TodoComponent implements OnInit {
     
   }
 
+  openInputField(){
+    this.displayInputField = true;
+  }
+
+  closeInputField(){
+    this.displayInputField = false;
+    this.typing = false;
+
+  }
+  showTyping(event:any){
+  
+    if( event.target.value !="" )    this.typing = true;
+  }
   addTodo(value : string, time:any){
+    
+      var invalid = false;
+      if(value == "" || time == ""){
+        Swal.fire("Invalid!","All fields are required","error");
+        this.typing = false;
+        invalid = true;
+        return;
+      }
+  
+
     //Check duplicate
     var duplicate = false;
     this.allTodos.forEach(element => {
       if(element.item.toLowerCase() === value.toLowerCase()){
         Swal.fire("Duplicate!","Item already added","error");
         duplicate = true;
+        this.typing = false;
+
         return;
       }
     })
 
-    if(duplicate == false){
+    if(duplicate == false || invalid == false){
 
       var nextIndex =  this.todos.length - 1;
       var timeLeft = moment().add(parseInt(time), "minutes").valueOf();
@@ -79,6 +108,7 @@ export class TodoComponent implements OnInit {
 
       this.allTodos.push(newTodo);
       this.todos = this.allTodos;
+      this.typing = false;
 
    
     }

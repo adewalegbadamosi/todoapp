@@ -8,7 +8,7 @@
         <div class="row align-items-center">
             <div class="col">
                 <picture>
-                    <source srcset="{{desktopBanner}}"  media="(min-width: 1440px)" class=" w-100 d-fluid" alt="banner">
+                    <source srcset="{{desktopBanner}}"  media="(min-width: 768px)" class=" w-100 d-fluid" alt="banner">
                     <img src="{{mobileBanner}}" class=" w-100 d-fluid" alt="banner">
 
                 </picture>
@@ -21,31 +21,33 @@
           <div class="container-xl ">
             <div class="row row-deck row-cards  ">
             
-            <div class="row mx-2 my-3">
+            <div class="row mx-auto mx-2 my-3">
 
-                <div class="col-md-8 col-lg-5 mx-auto">
-                    <div class="card bg-transparent border-0">
-                    <div class="card-body bg-transparent border-0">
-                        <div class="d-flex justify-content-between">
-                                <h1 class="font-todo font-weight-bold text-white">TODO</h1>
+                <div class="col-md-8 col-lg-5 mx-auto pt-4">
+                    <!-- <div class="card bg-transparent border-0"> -->
+                        <div class="card-body bg-transparent border-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                    <span class="font-todo font-weight-bold text-white">TODO</span>
                                 
-                            <span class="font-weight-bold font-todo" *ngIf="isLight">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="white" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /> </svg>                                    
+
+                                    <span class="" *ngIf="isLight">
+                                        <svg xmlns="http://www.w3.org/2000/svg"   class="mt-1 font-todo text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="white" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /> </svg>                                    
+                                    
+                                    </span>
+                                    <span class="" *ngIf="!isLight">
+                                                                    
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="mt-1 font-todo  text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="white" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="4" /><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" /></svg>                                   
+                                                                    
+                                    </span>
+                                    
+                                
                             
-                            </span>
-                            <span class="font-weight-bold font-todo" *ngIf="!isLight">
-                                                            
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="white" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="4" /><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" /></svg>                                   
-                                                            
-                            </span>
-                          
+                            
+                            </div>
                         
-                        
+                            
                         </div>
-                    
-                        
-                    </div>
-                    </div>
+                    <!-- </div> -->
                 </div>        
             </div>
             <div class="row m-auto py-2">
@@ -53,8 +55,9 @@
                 <div class="col-md-8 col-lg-5 mx-auto">
 
                     <div class="bg-transparent d-flex justify-content-between ">
-                        <button (click)="changeMode()"  class="btn  w-25 border-0" [ngClass]="{'btn-dark':isLight, 'text-white': isLight, 'btn-white':isLight==false, 'text-primary': isLight==false }">{{modeTitle}}</button>
-                        <button  class="btn w-25 todo-status border-0" data-bs-toggle="modal" data-bs-target="#new-todo-modal" [ngClass]="{'btn-white':isLight, 'text-primary': isLight, 'btn-dark':isLight==false, 'text-white': isLight==false }">Add New</button>
+                        <button (click)="changeMode()"  class="btn  w-25 border-0 px-xs-2 p-md-0" [ngClass]="{'btn-dark':isLight, 'text-white': isLight, 'btn-white':isLight==false, 'text-primary': isLight==false }">{{modeTitle}}</button>
+                        <button (click)="openInputField()"  class="btn w-25 todo-status border-0"  [ngClass]="{'btn-white':isLight, 'text-primary': isLight, 'btn-dark':isLight==false, 'text-white': isLight==false }">Add New</button>
+                        <!-- <button  class="btn w-25 todo-status border-0" data-bs-toggle="modal" data-bs-target="#new-todo-modal" [ngClass]="{'btn-white':isLight, 'text-primary': isLight, 'btn-dark':isLight==false, 'text-white': isLight==false }">Add New</button> -->
                     </div>
                 </div>
                      
@@ -64,17 +67,44 @@
 
                 <div class="col-md-8 col-lg-5 mx-auto rounded">
                   <div class="bg-white shadow todo-status rounded">
-                    <p class="text-primary text-center p-3 font-weight-bold" [ngClass]="{'btn-white':isLight, 'text-primary': isLight, 'btn-dark rounded':isLight==false, 'text-white': isLight==false }">You currently have a total of {{allTodos.length}} todos. </p>
+                    
+                    <p class="text-primary text-center p-3 font-weight-bold" [ngClass]="{'btn-white':isLight, 'text-primary': isLight, 'btn-dark rounded':isLight==false, 'text-white': isLight==false }">
+                        <span *ngIf="typing">Typing... </span>
+                        <span  *ngIf="!typing">You currently have a total of {{allTodos.length}} todos. </span>
+                    </p>
                    
                   
                   </div>
                 </div>
             </div>
 
+            <div class="row m-auto mb-2" *ngIf="displayInputField">
+
+                <div class="col-md-8 col-lg-5 mx-auto rounded">
+                  <div class="bg-white shadow rounded" [ngClass]="{'bg-white':isLight, 'text-muted': isLight, 'bg-dark':isLight==false, 'text-white': isLight==false }">
+                    <div class="mb-2 d-flex justify-content-between p-3 ">
+                             
+
+                        <input (keyup)="showTyping($event)" id="newTodo" #newTodo placeholder="New Item" type='text' class="form-control w-75" [ngClass]="{'bg-dark':isLight==false, 'text-white': isLight==false }"/>
+                   
+                        <input (keyup)="showTyping($event)" id="dueTime" #dueTime placeholder="Time (min)" type='number' class="form-control w-25" [ngClass]="{'bg-dark':isLight==false, 'text-white': isLight==false }" />
+                   
+                    </div> 
+                    <div class="mb-2 d-flex justify-content-between p-3">
+                        <button type="button" class="btn me-auto" [ngClass]="{'btn-outline btn-muted': isLight==false }" data-bs-dismiss="modal" (click)="closeInputField()">Close</button>
+                        <button type="button" (click)="addTodo(newTodo.value, dueTime.value)" class="btn btn-primary"
+                            data-bs-dismiss="modal" [ngClass]="{'bg-dark border border-muted text-light': isLight==false }" >Submit</button>
+                    </div>       
+                  
+                  </div>
+                </div>
+            </div>
+           
+
               <div class="row m-auto">
 
                   <div class="col-md-8 col-lg-5 mx-auto">
-                    <div class="card  shadow" [ngClass]="{'border border-dark':isLight==false }">
+                    <div class="card  shadow" [ngClass]="{'border border-dark bg-dark':isLight==false }">
                      
                       <div class="table-responsive mb-0" >
                         <table class="table card-table table-vcenter" [ngClass]="{'bg-white':isLight, 'text-muted': isLight, 'bg-dark':isLight==false, 'text-white': isLight==false }">
@@ -83,8 +113,8 @@
                               <input (click)="markCompletedTodos(todo.item)" type="checkbox" class="form-check-input m-0 align-middle rounded-circle" aria-label="Select task" [checked]="todo.completed" [disabled]="todo.completed"
                               [ngClass]="{'text-decoration-line border':isLight==false }">
                             </td>
-                            <td class="w-100" >
-                              <span class="" [ngClass]="{'text-decoration-line-through':todo.completed, 'text-muted': isLight, 'text-light': isLight==false }">{{todo.item}}</span>
+                            <td class="w-100 px-2" >
+                              <span class="todo-item px-0" [ngClass]="{'text-decoration-line-through':todo.completed, 'text-muted': isLight, 'text-light': isLight==false }">{{todo.item}}</span>
                             </td>
                        
                             <td>
@@ -99,29 +129,59 @@
                         </table>
                       </div>
                       
-                       <div class="d-flex justify-content-around py-4" [ngClass]="{'bg-white':isLight, 'text-muted': isLight, 'bg-dark':isLight==false, 'text-white': isLight==false }">
+                       <div class=" mx-auto d-none d-md-inline py-4" [ngClass]="{'bg-white':isLight, 'text-muted': isLight, 'bg-dark':isLight==false, 'text-white': isLight==false }">
                           
                        
-                           <span class="">
+                           <span class="span-option">
                              <a href="#" (click)="showFiveMinLeftTodos($event)" class="text-primary text-decoration-none action-button">5 min left</a>
                            </span>
-                            <span class="">
+                            <span class=" span-option">
                                 <a href="#" (click)="showAllTodos($event)" class="text-primary text-decoration-none action-button">All</a>
                               </span>
                            
-                            <span class="">
+                            <span class="span-option">
                               <a href="#" (click)="showActiveTodos($event)" class="text-primary text-decoration-none action-button">Active</a>
                             </span>
-                            <span class="">
+                            <span class="span-option">
                               <a href="#" (click)="showCompletedTodos($event)" class="text-primary text-decoration-none action-button">Completed</a>
                             </span>                       
                          
-                            <span class="">
+                            <span class="span-option">
                                 <a href="#" (click)="clearCompletedTodos($event)" class="text-primary text-decoration-none action-button">Clear Completed</a>                                                  
                            
                             </span>
                          
                       </div>
+
+                       <div class="d-block d-md-none d-flex justify-content-around py-4" [ngClass]="{'bg-white':isLight, 'text-muted': isLight, 'bg-dark':isLight==false, 'text-white': isLight==false }">
+                          
+                            <div>
+                                <label for="" class="options text-primary" [ngClass]="{'text-white':!isLight}">Options</label>
+                            </div>
+                            <select name="" id="" class=" border border-primary rounded" [ngClass]="{'bg-dark text-light border-white':!isLight}">
+                                
+                            
+                                <option class="" (click)="showFiveMinLeftTodos($event)">
+                                    <a href="#"  class="text-primary text-decoration-none action-button">5 min left</a>
+                                </option>
+                                    <option selected class="" (click)="showAllTodos($event)">
+                                        <a href="#"  class="text-primary text-decoration-none action-button">All</a>
+                                    </option>
+                                
+                                    <option class="" (click)="showActiveTodos($event)">
+                                    <a href="#"  class="text-primary text-decoration-none action-button">Active</a>
+                                    </option>
+                                    <option class="" (click)="showCompletedTodos($event)">
+                                    <a href="#"  class="text-primary text-decoration-none action-button">Completed</a>
+                                    </option>                       
+                                
+                                    <option class="" (click)="clearCompletedTodos($event)">
+                                        <a href="#"  class="text-primary text-decoration-none action-button">Clear Completed</a>                                                 
+                                
+                                    </option>
+                                </select>
+                      </div>
+
                     </div>
                   </div>
               </div>
@@ -150,9 +210,9 @@
     
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn me-auto" [ngClass]="{'btn-outline': isLight==false }" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn me-auto" [ngClass]="{'btn-outline btn-muted': isLight==false }" data-bs-dismiss="modal">Close</button>
                             <button type="button" (click)="addTodo(newTodo.value, dueTime.value)" class="btn btn-primary"
-                                data-bs-dismiss="modal">Submit</button>
+                                data-bs-dismiss="modal" [ngClass]="{'bg-dark border border-muted text-light': isLight==false }" >Submit</button>
                         </div>
                     </div>
                 </div>
@@ -179,9 +239,7 @@
                     Coded by <a href="#">Adewale Gbadamosi.</a>
                     </p>
                 </li>
-                <!-- <li class="list-inline-item">
-                  <a href="#" class="link-secondary" rel="noopener">v2.0</a>
-                </li> -->
+             
               </ul>
               <div class="d-block d-md-none">
                 <div class="col-12 col-md-4" [ngClass]="{ 'text-dark': isLight, 'text-white': isLight==false }">
@@ -190,9 +248,7 @@
                     Coded by <a href="#">Adewale Gbadamosi</a>.
                     </p>
                 </div>
-                <!-- <div class="col-12 col-md-4">
-                    All rights reserved. v2.0
-                </div> -->
+             
               </div>
             </div>
           </div>

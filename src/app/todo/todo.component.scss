@@ -21,6 +21,26 @@ td {
       margin-top: -250px !important;
   }
 
+  @media screen and (max-width:400px) {
+      
+      .overlap{
+          margin-top: -100px !important;
+      }
+  }
+  @media screen and (max-width:768px) {
+      
+      .overlap{
+          margin-top: -180px !important;
+      }
+  }
+
+  @media screen and (max-width:1399px) {
+      
+      .overlap{
+          margin-top: -220px !important;
+      }
+  }
+
   .antialiased{
       min-height: 100vh !important;
   }
@@ -30,8 +50,20 @@ td {
   .font-todo{
       font-size: 30px;
   }
-  .action-button:hover{
+  .action-button:hover ,.options:hover{
       color: hsl(233, 11%, 84%) !important;
+  }
+  option:hover{
+      background-color: hsl(233, 11%, 84%) !important;
+  }
+  option a:hover{
+    color: #206bc4 !important;
+  }
+  
+
+ .todo-item:hover{
+  
+    color: #206bc4 !important;
   }
   .todo-status:hover, .todo-status p:hover{
     background-color:  #206bc4 !important;
@@ -42,16 +74,19 @@ td {
     color: white !important;
   }
 
+  .span-option{
+      margin-right: 10px !important;
+  }
+  .span-option a{
+      font-size: 14px !important;
+  }
+
   input[type="checkbox"]:hover {
     background-color:  #206bc4 !important;
     border: 1px solid linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%) !important;
 
   }
 
-//   td{
-//       padding-top: 1px !important;
-//       padding-bottom: 1px !important;
-//   }
 
   .linear-gradient{
 
