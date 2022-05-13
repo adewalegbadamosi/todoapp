@@ -102,7 +102,7 @@ this.displayModileOptions =true;
       }
     })
 
-    if(duplicate == false || invalid == false){
+    if(duplicate == false && invalid == false){
 
       var nextIndex =  this.todos.length - 1;
       var timeLeft = moment().add(parseInt(time), "minutes").valueOf();
