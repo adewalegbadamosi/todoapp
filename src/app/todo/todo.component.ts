@@ -53,8 +53,6 @@ export class TodoComponent implements OnInit {
       this.fillLight = true;
       this.mobileBanner = "./../../assets/img/images/bg-mobile-light.jpg";
       this.desktopBanner = "./../../assets/img/images/bg-desktop-light.jpg";
-
-
     }
   }
 
