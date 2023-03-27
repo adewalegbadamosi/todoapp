@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
  git clone  https://github.com/adewalegbadamosi/todoapp.git
 
 # Change Directory
-change directory into todoapp
+cd into todoapp
 
 # Install Dependencies
 npm install
