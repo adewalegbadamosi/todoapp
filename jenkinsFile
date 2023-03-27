@@ -1,6 +1,7 @@
 pipeline  {
     agent any
     stages {
+        
         stage('Checkout'){
             steps {
                 git branch: 'main', 
@@ -8,5 +9,18 @@ pipeline  {
                 url: 'https://github.com/adewalegbadamosi/todoapp'
             }
         }
+
+        stage('Build') {
+          
+            steps {
+            
+                sh """                
+                    npm i && \
+                    npm run build                  
+                """
+                
+            }
+        }
+   
     }
 }
