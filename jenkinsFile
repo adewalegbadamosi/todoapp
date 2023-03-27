@@ -2,7 +2,11 @@ pipeline  {
     agent any
     stages {
         stage('Checkout'){
-            git branch: 'main', credentialsId: 'git-cred-todoapp', url: 'https://github.com/adewalegbadamosi/todoapp'
+            steps {
+                git branch: 'main', 
+                credentialsId: 'git-cred-todoapp', 
+                url: 'https://github.com/adewalegbadamosi/todoapp'
+            }
         }
     }
 }
