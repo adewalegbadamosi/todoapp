@@ -9,22 +9,33 @@ pipeline  {
         stage('Checkout'){
             steps {
                 git branch: 'main', 
-                credentialsId: 'git-cred-todoapp', 
+                //credentialsId: 'git-cred-todoapp', 
                 url: 'https://github.com/adewalegbadamosi/todoapp'
             }
         }
 
-        stage('Build') {
+        // stage('install') {
           
-            steps {
+        //     steps {
             
-                sh """                
+        //         sh """                
                     
-                    npm run build --prod               
-                """
+        //             npm i               
+        //         """
                 
-            }
-        }
+        //     }
+        // }
+        // stage('Build') {
+          
+        //     steps {
+            
+        //         sh """                
+                    
+        //             npm run build --prod               
+        //         """
+                
+        //     }
+        // }
         
         
         stage('copy to www html') {
