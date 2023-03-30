@@ -1,0 +1,41 @@
+pipeline  {
+
+    agent any
+    
+    tools {nodejs "nodejs"} 
+    
+    stages {
+        
+        stage('Checkout'){
+            steps {
+                git branch: 'main', 
+                credentialsId: 'git-cred-todoapp', 
+                url: 'https://github.com/adewalegbadamosi/todoapp'
+            }
+        }
+
+        stage('Build') {
+          
+            steps {
+            
+                sh """                
+                    
+                    npm run build --prod               
+                """
+                
+            }
+        }
+        
+        
+        stage('copy to www html') {
+          
+            steps {
+            
+                sh "cp -a /var/lib/jenkins/workspace/first-job/dist/todoapp/  /var/www/html"          
+                                     
+                                
+            }
+        }
+   
+    }
+}

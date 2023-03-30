@@ -3,7 +3,6 @@ import { TodoService } from '../service/todo-service'
 import Swal from 'sweetalert2';
 import * as moment from 'moment';
 
-
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
@@ -28,15 +27,12 @@ export class TodoComponent implements OnInit {
   typing:boolean = false;
   displayModileOptions:boolean = false;
 
-
- 
   constructor( private todoService: TodoService) { }
 
   ngOnInit(): void {
   
     this.initializeTodos();
   }
-
   changeMode(){
     if(this.isLight){
       this.modeTitle = "Light Mode";
@@ -109,12 +105,8 @@ this.displayModileOptions =true;
 
       this.allTodos.push(newTodo);
       this.todos = this.allTodos;
-      this.typing = false;
-
-   
+      this.typing = false;   
     }
-
-
   }
   deleteTodo(item:string){
 
