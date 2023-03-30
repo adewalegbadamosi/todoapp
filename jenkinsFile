@@ -43,8 +43,8 @@ pipeline  {
             steps {
             
                 sh """
-                sudo -s && \
-                cp -a /var/lib/jenkins/workspace/first-job/dist/TodoApp/.  /var/www/html
+                
+                cp -a /var/lib/jenkins/workspace/first-job/dist/TodoApp/.  /var/www/html/.
                 """          
                                      
                                 
