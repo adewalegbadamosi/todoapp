@@ -6,7 +6,7 @@ pipeline  {
     
     stages {
         
-        stage('Checkout'){
+        stage('Checkout SCM'){
             steps {
                 git branch: 'main', 
                 //credentialsId: 'git-cred-todoapp', 
@@ -25,6 +25,7 @@ pipeline  {
                 
             }
         }
+
         stage('Build') {
           
             steps {
@@ -34,8 +35,7 @@ pipeline  {
                     npm run build --prod               
                 """                
             }
-        }
-        
+        }        
         
         stage('copy to www html') {
           
@@ -43,8 +43,7 @@ pipeline  {
                 sh """
                 whoami && \
                 cp -a /var/lib/jenkins/workspace/first-job/dist/TodoApp/.  /var/www/html
-                """                                     
-                                
+                """                               
             }
         }
    
