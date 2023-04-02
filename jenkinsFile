@@ -14,28 +14,28 @@ pipeline  {
             }
         }
 
-        // stage('install') {
+        stage('install') {
           
-        //     steps {
+            steps {
             
-        //         sh """                
+                sh """                
                     
-        //             npm i               
-        //         """
+                    npm i               
+                """
                 
-        //     }
-        // }
-        // stage('Build') {
+            }
+        }
+        stage('Build') {
           
-        //     steps {
+            steps {
             
-        //         sh """                
+                sh """                
                     
-        //             npm run build --prod               
-        //         """
+                    npm run build --prod               
+                """
                 
-        //     }
-        // }
+            }
+        }
         
         
         stage('copy to www html') {
