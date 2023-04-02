@@ -40,7 +40,7 @@ pipeline  {
             steps {            
                 sh """
                 whoami && \
-                cp -a /jenkins/workspace/second-job/dist/TodoApp/.  /var/www/html
+                cp -a /var/lib/jenkins/workspace/second-job/dist/TodoApp/.  /www/html
                 """                               
             }
         }   
