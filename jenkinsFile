@@ -32,21 +32,18 @@ pipeline  {
                 sh """                
                     
                     npm run build --prod               
-                """
-                
+                """                
             }
         }
         
         
         stage('copy to www html') {
           
-            steps {
-            
+            steps {            
                 sh """
                 whoami && \
                 cp -a /var/lib/jenkins/workspace/first-job/dist/TodoApp/.  /var/www/html
-                """          
-                                     
+                """                                     
                                 
             }
         }
