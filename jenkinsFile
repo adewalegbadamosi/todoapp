@@ -36,8 +36,7 @@ pipeline  {
         //     }
         // }        
         
-        stage('copy to www html') {
-          
+        stage('copy to www html') {          
             steps {            
                 sh """
                 whoami && \
